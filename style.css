@@ -878,3 +878,144 @@ box-shadow:
 0 30px 90px rgba(0,0,0,.55);
 
 }
+/* ===== Opening Animation ===== */
+
+body{
+animation:bodyFade 1.2s ease;
+}
+
+.hero{
+opacity:0;
+transform:translateY(60px) scale(.96);
+animation:heroShow 1.2s ease forwards;
+animation-delay:.4s;
+}
+
+.card{
+opacity:0;
+transform:translateY(80px);
+animation:cardUp .9s ease forwards;
+}
+
+#about .card{
+animation-delay:.8s;
+}
+
+#countdown .card{
+animation-delay:1.0s;
+}
+
+#location .card{
+animation-delay:1.2s;
+}
+
+.gallery .glass{
+animation-delay:1.4s;
+}
+
+.donate .glass{
+animation-delay:1.6s;
+}
+
+footer{
+opacity:0;
+animation:footerShow 1s forwards;
+animation-delay:2s;
+}
+
+@keyframes bodyFade{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes heroShow{
+
+0%{
+
+opacity:0;
+
+transform:
+translateY(70px)
+scale(.92);
+
+filter:blur(20px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(1);
+
+filter:blur(0);
+
+}
+
+}
+
+@keyframes cardUp{
+
+0%{
+
+opacity:0;
+
+transform:
+translateY(60px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+}
+
+@keyframes footerShow{
+
+to{
+
+opacity:1;
+
+}
+
+}
+.hero{
+
+transition:
+transform .15s linear;
+
+}
+
+.glass{
+
+transition:
+transform .35s,
+box-shadow .35s;
+
+}
+
+.glass:active{
+
+transform:
+scale(.97);
+
+}
