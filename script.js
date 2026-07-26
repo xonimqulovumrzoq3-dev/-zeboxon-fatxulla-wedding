@@ -241,3 +241,17 @@ body{
 overscroll-behavior:none;
 
 }
+h1{
+
+background:linear-gradient(
+180deg,
+#fff,
+#fff,
+#d8d8d8
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
