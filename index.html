@@ -1,417 +1,419 @@
 <!DOCTYPE html>
 <html lang="uz">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zeboxon & Fatxulla — To'y Taklifnomasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-<meta charset="UTF-8">
+        :root {
+            --bg-color: #0b0b0f;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --glass-blur: blur(20px);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
 
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+        body {
+            body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    /* Fon rasmini shu yerga qo'shasiz: */
+    background-image: url('IMG_1756.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
 
-<title>Fatxulla ❤️ Zeboxon</title>
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+        /* Ambient Glow Background Animation */
+        .ambient-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        .glow-blob {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            animation: floatBlob 12s ease-in-out infinite alternate;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+        .blob-1 { background: #e11d48; top: -100px; left: -100px; }
+        .blob-2 { background: #2563eb; bottom: -100px; right: -100px; animation-delay: -6s; }
 
-<link rel="stylesheet" href="style.css">
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 60px) scale(1.15); }
+        }
 
+        /* Music Floating Control Button */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Welcome Overlay Modal */
+        #welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 8, 0.9);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        #welcome-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 40px 30px;
+            border-radius: 32px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        .welcome-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            color: #fb7185;
+            margin-bottom: 8px;
+        }
+
+        .welcome-subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+
+        /* Liquid Glass Button */
+        .liquid-btn {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 40px 20px 80px 20px;
+            display: none;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .container.visible {
+            display: flex;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--card-border);
+            border-radius: 28px;
+            padding: 32px 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 52px;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .ampersand {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 24px;
+            color: #fb7185;
+            display: block;
+            margin: 4px 0;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: rgba(244, 63, 94, 0.15);
+            border: 1px solid rgba(244, 63, 94, 0.3);
+            color: #fb7185;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .event-time { font-size: 26px; font-weight: 700; color: white; margin-bottom: 12px; }
+        .venue-title { font-size: 18px; font-weight: 600; color: white; margin-bottom: 6px; }
+        .venue-address { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 10px 4px;
+            border-radius: 14px;
+        }
+
+        .countdown-number { font-size: 20px; font-weight: 700; color: #fb7185; }
+        .countdown-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; }
+
+        .card-number-display {
+            font-family: monospace;
+            font-size: 17px;
+            letter-spacing: 2px;
+            color: #60a5fa;
+            background: rgba(96, 165, 250, 0.1);
+            border: 1px dashed rgba(96, 165, 250, 0.3);
+            padding: 10px;
+            border-radius: 12px;
+            margin: 10px 0;
+        }
+
+        .copy-btn, .rsvp-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .rsvp-btn {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            width: 100%;
+            padding: 14px;
+            font-size: 15px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            transition: transform 0.4s ease;
+            z-index: 10000;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+    </style>
 </head>
-
 <body>
-<div id="loader">
 
-<div class="loader-glass">
-
-<div class="loader-heart">❤</div>
-
-<h1>Zeboxon</h1>
-
-<h2>&</h2>
-
-<h1>Fatxulla</h1>
-
-<p>Wedding Invitation</p>
-
-</div>
-
-</div>
-<div class="background"></div>
-
-<div class="overlay"></div>
-
-<header class="hero">
-
-<div class="glass">
-
-<span class="top">
-
-Wedding Invitation
-
-</span>
-
-<h1>
-
-Fatxulla
-
-</h1>
-
-<div class="love">
-
-❤
-
-</div>
-
-<h1>
-
-Zeboxon
-
-</h1>
-
-<p>
-
-Sizni hayotimizdagi
-
-eng baxtli kunimizga
-
-chin yurakdan
-
-taklif qilamiz
-
-</p>
-
-<a href="#about">
-
-<button>
-
-Taklifnomani ochish
-
-</button>
-
-</a>
-
-</div>
-
-</header>
-
-<section id="about">
-
-<div class="card">
-
-<h2>
-
-13 Sentabr 2026
-
-</h2>
-
-<h3>
-
-19:00
-
-</h3>
-
-<h4>
-
-Orom To'yxonasi
-
-</h4>
-
-<p>
-
-Toshkent viloyati
-
-Bekobod tumani
-
-Zafar shaharchasi
-
-</p>
-
-</div>
-
-</section>
-
-<section id="countdown">
-
-<div class="card">
-
-<h2>
-
-To'ygacha
-
-</h2>
-
-<div class="timer">
-
-<div>
-
-<span id="days">
-
-00
-
-</span>
-
-<small>
-
-Kun
-
-</small>
-
-</div>
-
-<div>
-
-<span id="hours">
-
-00
-
-</span>
-
-<small>
-
-Soat
-
-</small>
-
-</div>
-
-<div>
-
-<span id="minutes">
-
-00
-
-</span>
-
-<small>
-
-Minut
-
-</small>
-
-</div>
-
-<div>
-
-<span id="seconds">
-
-00
-
-</span>
-
-<small>
-
-Sekund
-
-</small>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="card">
-
-<h2>
-
-To'yona
-
-</h2>
-
-<h3>
-
-5614 6821 1130 4913
-
-</h3>
-
-<p>
-
-Fatxulla Xusanboyev
-
-</p>
-
-<button id="copy">
-
-Karta raqamini nusxalash
-
-</button>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="card">
-
-<h2>
-
-Lokatsiya
-
-</h2>
-
-<p>
-
-Google Maps
-
-keyin qo'shiladi
-
-</p>
-
-<button>
-
-Tez orada
-
-</button>
-
-</div>
-
-</section>
-<section id="rsvp">
-
-<div class="glass rsvp-box">
-
-<h2>💌 Sizni kutamiz</h2>
-
-<p>
-
-Marosimga tashrif buyurishingizni
-oldindan tasdiqlasangiz juda xursand bo'lamiz.
-
-</p>
-
-<a href="https://t.me/fatxullaxusanboyev" target="_blank">
-
-<button class="rsvpBtn">
-
-✅ Men boraman
-
-</button>
-
-</a>
-
-</div>
-
-</section>
-<footer>
-
-Sizni intiqlik bilan kutamiz ❤️
-<section class="gallery">
-
-<div class="glass gallery-box">
-
-<h2>Bizning Baxtli Kunimiz</h2>
-
-<p>
-13 Sentabr 2026 kuni siz bilan
-birga bo'lish biz uchun katta baxt.
-</p>
-
-<div class="line"></div>
-
-<div class="quote">
-
-"Sevgi — ikki qalbning
-bir umrga bergan va'dasi."
-
-</div>
-
-</div>
-
-</section>
-
-<section class="donate">
-
-<div class="glass donate-box">
-
-<h2>💝 To'yona</h2>
-
-<p>
-
-To'yona yubormoqchi bo'lsangiz
-
-quyidagi karta orqali yuborishingiz mumkin.
-
-</p>
-
-<div class="card-number">
-
-5614 6821 1130 4913
-
-</div>
-
-<div class="owner">
-
-Fatxulla Xusanboyev
-
-</div>
-
-<button id="copyCard">
-
-Karta raqamini nusxalash
-
-</button>
-
-</div>
-
-</section>
-</footer>
-<footer>
-Sizni intiqlik bilan kutamiz ❤️
-</footer>
-
-<audio id="music" loop>
-    <source src="yoningdaman.m4a.m4a" type="audio/mp4">
-</audio>
-
-<div class="music-player" id="musicBtn">
-    🎵
-</div>
-
-<div class="particles">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-
-<script src="script.js"></script>
-<div class="bottomDock">
-
-<a href="#">
-🏠
-</a>
-
-<a href="#about">
-💍
-</a>
-
-<a href="#countdown">
-⏳
-</a>
-
-<a href="#location">
-📍
-</a>
-
-<a id="musicOpen">
-🎵
-</a>
-
-</div>
+    <div class="ambient-glow">
+        <div class="glow-blob blob-1"></div>
+        <div class="glow-blob blob-2"></div>
+    </div>
+
+    <!-- Fon Musiqasi -->
+    <audio id="bg-music" loop>
+        <source src="yoningdaman.m4a.m4a" type="audio/mpeg">
+    </audio>
+
+    <button class="music-control" id="music-toggle" title="Musiqa">🎵</button>
+
+    <!-- Kirish ekrani -->
+    <div id="welcome-overlay">
+        <div class="welcome-card">
+            <div style="font-size: 35px; margin-bottom: 12px;">❤️</div>
+            <div class="welcome-title">Zeboxon & Fatxulla</div>
+            <div class="welcome-subtitle">Sizni hayotimizdagi eng baxtli kunimizga taklif qilamiz.</div>
+            <button class="liquid-btn" id="open-invitation">Taklifnomani ochish ✨</button>
+        </div>
+    </div>
+
+    <!-- Asosiy Tarkib -->
+    <div class="container" id="main-content">
+        <div class="glass-card" style="padding: 40px 20px;">
+            <div style="font-size: 30px; color: #fb7185; margin-bottom: 10px;">❤️</div>
+            <div class="names">Zeboxon <span class="ampersand">&</span> Fatxulla</div>
+            <div class="venue-address">Sizni to'yimizda ko'rsak murg'ak qalbimiz quvonadi.</div>
+        </div>
+
+        <div class="glass-card">
+            <div class="date-badge">13 Sentabr 2026</div>
+            <div class="event-time">19:00</div>
+            <div class="venue-title">Orom To'yxonasi</div>
+            <div class="venue-address">Toshkent viloyati Bekobod tumani Zafar shaharchasi</div>
+        </div>
+
+        <div class="glass-card">
+            <div style="font-weight: 600; margin-bottom: 10px;">To'ygacha qoldi</div>
+            <div class="countdown-grid">
+                <div class="countdown-box"><div class="countdown-number" id="days">00</div><div class="countdown-label">Kun</div></div>
+                <div class="countdown-box"><div class="countdown-number" id="hours">00</div><div class="countdown-label">Soat</div></div>
+                <div class="countdown-box"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">Min</div></div>
+                <div class="countdown-box"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">Sek</div></div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <div style="font-weight: 700; margin-bottom: 8px;">🎁 To'yona</div>
+            <div class="card-number-display">5614 6821 1130 4913</div>
+            <div style="font-size: 14px; font-weight: 600;">Fatxulla Xusanboyev</div>
+            <button class="copy-btn" onclick="copyCard('561468211304913', this)">📋 Nusxalash</button>
+        </div>
+
+        <div class="glass-card">
+            <div style="font-weight: 700; margin-bottom: 8px;">💌 Tashrifingiz</div>
+            <div class="venue-address" style="margin-bottom: 12px;">Kelishingizni oldindan tasdiqlang</div>
+            <button class="rsvp-btn" id="rsvp-action" onclick="toggleRsvp(this)">✅ Men boraman</button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast-msg">Nusxalandi!</div>
+
+    <script>
+        const welcomeOverlay = document.getElementById('welcome-overlay');
+        const openBtn = document.getElementById('open-invitation');
+        const mainContent = document.getElementById('main-content');
+        const bgMusic = document.getElementById('bg-music');
+        const musicToggle = document.getElementById('music-toggle');
+        let isPlaying = false;
+
+        openBtn.addEventListener('click', () => {
+            welcomeOverlay.classList.add('hidden');
+            mainContent.classList.add('visible');
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                musicToggle.innerHTML = '🔊';
+            }).catch(e => console.log(e));
+        });
+
+        musicToggle.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                isPlaying = false;
+                musicToggle.innerHTML = '🔇';
+            } else {
+                bgMusic.play();
+                isPlaying = true;
+                musicToggle.innerHTML = '🔊';
+            }
+        });
+
+        const weddingDate = new Date('2026-09-13T19:00:00').getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            if (distance > 0) {
+                document.getElementById('days').innerText = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+            }
+        }, 1000);
+
+        function copyCard(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                btn.innerText = '✅ Nusxalandi!';
+                showToast("Karta raqami nusxalandi!");
+                setTimeout(() => btn.innerText = '📋 Nusxalash', 2000);
+            });
+        }
+
+        function toggleRsvp(btn) {
+            if (!btn.classList.contains('confirmed')) {
+                btn.innerHTML = '✅ Tashrifingiz tasdiqlandi!';
+                btn.style.background = 'rgba(34, 197, 94, 0.2)';
+                btn.style.color = '#4ade80';
+                btn.classList.add('confirmed');
+                showToast("Rahmat! Sizni kutamiz ❤️");
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-msg');
+            toast.innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+    </script>
 </body>
-</html>
-<script src="script.js"></script>
-
-</body>
-
 </html>
