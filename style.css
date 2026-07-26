@@ -54,30 +54,38 @@ padding:20px;
 
 .glass{
 
-width:100%;
+.glass{
+position:relative;
+overflow:hidden;
+
+width:92%;
 max-width:430px;
 
 padding:45px 30px;
 
-border-radius:35px;
+border-radius:36px;
 
-background:rgba(255,255,255,.12);
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.20),
+rgba(255,255,255,.08)
+);
 
-backdrop-filter:blur(25px);
+backdrop-filter:blur(40px) saturate(180%);
+-webkit-backdrop-filter:blur(40px) saturate(180%);
 
--webkit-backdrop-filter:blur(25px);
-
-border:1px solid rgba(255,255,255,.2);
+border:1px solid rgba(255,255,255,.22);
 
 box-shadow:
-0 25px 60px rgba(0,0,0,.45);
+0 20px 80px rgba(0,0,0,.45),
+inset 0 1px 1px rgba(255,255,255,.55),
+inset 0 -1px 1px rgba(255,255,255,.08);
 
 text-align:center;
 
-animation:show 1s ease;
-
+transition:.45s;
 }
-
 .top{
 
 display:block;
@@ -774,5 +782,99 @@ box-shadow:0 15px 40px rgba(255,255,255,.35);
 margin-top:18px;
 
 line-height:1.8;
+
+}
+.glass::before{
+
+content:"";
+
+position:absolute;
+
+top:-45%;
+
+left:-45%;
+
+width:280px;
+
+height:280px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(255,255,255,.55),
+
+transparent 72%);
+
+filter:blur(35px);
+
+animation:glassLight 8s linear infinite;
+
+pointer-events:none;
+
+}
+.glass::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-70px;
+
+right:-70px;
+
+width:180px;
+
+height:180px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(255,255,255,.18),
+
+transparent 75%);
+
+filter:blur(30px);
+
+}
+@keyframes glassLight{
+
+0%{
+
+transform:
+translate(-60px,-60px);
+
+}
+
+50%{
+
+transform:
+translate(240px,180px);
+
+}
+
+100%{
+
+transform:
+translate(-60px,-60px);
+
+}
+
+}
+.glass:hover{
+
+transform:
+
+translateY(-8px)
+scale(1.02);
+
+box-shadow:
+
+0 30px 90px rgba(0,0,0,.55);
 
 }
