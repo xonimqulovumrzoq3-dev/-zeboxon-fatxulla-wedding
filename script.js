@@ -116,3 +116,22 @@ card.style.transform="perspective(1000px) rotateX(0) rotateY(0)";
 });
 
 });
+const copyCard=document.getElementById("copyCard");
+
+if(copyCard){
+
+copyCard.onclick=()=>{
+
+navigator.clipboard.writeText("5614682111304913");
+
+copyCard.innerHTML="✅ Nusxalandi";
+
+setTimeout(()=>{
+
+copyCard.innerHTML="Karta raqamini nusxalash";
+
+},2500);
+
+}
+
+}
