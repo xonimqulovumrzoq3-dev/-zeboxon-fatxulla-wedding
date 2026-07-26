@@ -547,3 +547,106 @@ color:black;
 transform:translateY(-4px);
 
 }
+/* ---------- Loader ---------- */
+
+#loader{
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#000;
+
+z-index:99999;
+
+transition:1.2s;
+
+}
+
+.loader-glass{
+
+width:320px;
+
+padding:45px;
+
+text-align:center;
+
+border-radius:35px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(35px);
+
+border:1px solid rgba(255,255,255,.15);
+
+box-shadow:0 20px 80px rgba(0,0,0,.55);
+
+animation:loaderShow 1.2s;
+
+}
+
+.loader-heart{
+
+font-size:45px;
+
+margin-bottom:20px;
+
+animation:pulse 1.3s infinite;
+
+}
+
+.loader-glass h1{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:44px;
+
+}
+
+.loader-glass h2{
+
+margin:10px 0;
+
+font-size:30px;
+
+}
+
+.loader-glass p{
+
+margin-top:20px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+font-size:13px;
+
+color:#ffd873;
+
+}
+
+@keyframes loaderShow{
+
+from{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
