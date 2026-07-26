@@ -456,3 +456,94 @@ background:#ffffff55;
 border-radius:30px;
 
 }
+.gallery{
+
+padding:90px 20px;
+
+}
+
+.gallery-box{
+
+text-align:center;
+
+}
+
+.gallery h2{
+
+font-size:42px;
+
+margin-bottom:20px;
+
+font-family:'Cormorant Garamond',serif;
+
+}
+
+.line{
+
+width:120px;
+
+height:2px;
+
+background:white;
+
+margin:35px auto;
+
+opacity:.5;
+
+}
+
+.quote{
+
+font-size:24px;
+
+font-family:'Cormorant Garamond',serif;
+
+line-height:1.8;
+
+}
+
+.donate{
+
+padding:80px 20px;
+
+}
+
+.donate-box{
+
+text-align:center;
+
+}
+
+.card-number{
+
+font-size:26px;
+
+letter-spacing:3px;
+
+margin:35px 0;
+
+font-weight:700;
+
+}
+
+.owner{
+
+opacity:.75;
+
+margin-bottom:30px;
+
+}
+
+#copyCard{
+
+background:white;
+
+color:black;
+
+}
+
+#copyCard:hover{
+
+transform:translateY(-4px);
+
+}
