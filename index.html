@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Fatxulla & Zeboxon — To'y Taklifnomasi</title>
+    <title>Zeboxon & Fatxulla — To'y Taklifnomasi</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
@@ -23,19 +23,6 @@
         }
 
         body {
-            body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    /* Fon rasmini shu yerga qo'shasiz: */
-    background-image: url('IMG_1756.jpeg'); 
-    background-size: cover;
-    background-position: center;
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-}
-
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -44,7 +31,6 @@
             position: relative;
         }
 
-        /* Ambient Glow Background Animation */
         .ambient-glow {
             position: fixed;
             top: 0;
@@ -74,7 +60,6 @@
             100% { transform: translate(40px, 60px) scale(1.15); }
         }
 
-        /* Music Floating Control Button */
         .music-control {
             position: fixed;
             top: 20px;
@@ -95,7 +80,6 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        /* Welcome Overlay Modal */
         #welcome-overlay {
             position: fixed;
             top: 0;
@@ -145,7 +129,6 @@
             line-height: 1.5;
         }
 
-        /* Liquid Glass Button */
         .liquid-btn {
             position: relative;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
@@ -162,7 +145,6 @@
             width: 100%;
         }
 
-        /* Main Container */
         .container {
             max-width: 480px;
             margin: 0 auto;
@@ -236,16 +218,57 @@
         .countdown-number { font-size: 20px; font-weight: 700; color: #fb7185; }
         .countdown-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; }
 
+        .creative-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 22px;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            text-align: left;
+        }
+
+        .card-chip {
+            width: 36px;
+            height: 26px;
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            border-radius: 6px;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
         .card-number-display {
             font-family: monospace;
-            font-size: 17px;
-            letter-spacing: 2px;
-            color: #60a5fa;
-            background: rgba(96, 165, 250, 0.1);
-            border: 1px dashed rgba(96, 165, 250, 0.3);
-            padding: 10px;
-            border-radius: 12px;
-            margin: 10px 0;
+            font-size: 18px;
+            letter-spacing: 3px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-holder {
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bank-logo {
+            font-size: 14px;
+            font-weight: 700;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
         }
 
         .copy-btn, .rsvp-btn {
@@ -257,14 +280,25 @@
             font-size: 13px;
             font-weight: 500;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:active, .rsvp-btn:active {
+            transform: scale(0.96);
         }
 
         .rsvp-btn {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border: 1px solid rgba(59, 130, 246, 0.4);
             width: 100%;
             padding: 14px;
             font-size: 15px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
         }
 
         .toast {
@@ -293,7 +327,7 @@
 
     <!-- Fon Musiqasi -->
     <audio id="bg-music" loop>
-        <source src="yoningdaman.m4a.m4a" type="audio/mpeg">
+        <source src="yoningdaman.m4a.m4a" type="audio/mp4">
     </audio>
 
     <button class="music-control" id="music-toggle" title="Musiqa">🎵</button>
@@ -333,17 +367,28 @@
             </div>
         </div>
 
+        <!-- To'yona -->
         <div class="glass-card">
-            <div style="font-weight: 700; margin-bottom: 8px;">🎁 To'yona</div>
-            <div class="card-number-display">5614 6821 1130 4913</div>
-            <div style="font-size: 14px; font-weight: 600;">Fatxulla Xusanboyev</div>
-            <button class="copy-btn" onclick="copyCard('561468211304913', this)">📋 Nusxalash</button>
+            <div style="font-weight: 700; margin-bottom: 4px; font-size: 16px;">🎁 To'yona</div>
+            <div class="venue-address" style="margin-bottom: 10px;">Kichik hissangiz biz uchun qadrli</div>
+            
+            <div class="creative-card">
+                <div class="card-chip"></div>
+                <div class="card-number-display">5614 6821 1130 4913</div>
+                <div class="card-footer">
+                    <div class="card-holder">Fatxulla Xusanboyev</div>
+                    <div class="bank-logo">UzCard / Humo</div>
+                </div>
+            </div>
+
+            <button class="copy-btn" onclick="copyCard('561468211304913', this)">📋 Karta raqamini nusxalash</button>
         </div>
 
+        <!-- Tashrifingiz -->
         <div class="glass-card">
             <div style="font-weight: 700; margin-bottom: 8px;">💌 Tashrifingiz</div>
-            <div class="venue-address" style="margin-bottom: 12px;">Kelishingizni oldindan tasdiqlang</div>
-            <button class="rsvp-btn" id="rsvp-action" onclick="toggleRsvp(this)">✅ Men boraman</button>
+            <div class="venue-address" style="margin-bottom: 14px;">Kelishingizni oldindan tasdiqlang</div>
+            <a href="https://t.me/fatxullaxusanboyev" target="_blank" class="rsvp-btn">✅ Men boraman (Telegram)</a>
         </div>
     </div>
 
@@ -394,18 +439,8 @@
             navigator.clipboard.writeText(text).then(() => {
                 btn.innerText = '✅ Nusxalandi!';
                 showToast("Karta raqami nusxalandi!");
-                setTimeout(() => btn.innerText = '📋 Nusxalash', 2000);
+                setTimeout(() => btn.innerText = '📋 Karta raqamini nusxalash', 2000);
             });
-        }
-
-        function toggleRsvp(btn) {
-            if (!btn.classList.contains('confirmed')) {
-                btn.innerHTML = '✅ Tashrifingiz tasdiqlandi!';
-                btn.style.background = 'rgba(34, 197, 94, 0.2)';
-                btn.style.color = '#4ade80';
-                btn.classList.add('confirmed');
-                showToast("Rahmat! Sizni kutamiz ❤️");
-            }
         }
 
         function showToast(msg) {
