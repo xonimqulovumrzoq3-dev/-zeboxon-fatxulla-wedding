@@ -135,3 +135,16 @@ copyCard.innerHTML="Karta raqamini nusxalash";
 }
 
 }
+window.onload=()=>{
+
+setTimeout(()=>{
+
+const loader=document.getElementById("loader");
+
+loader.style.opacity="0";
+
+loader.style.visibility="hidden";
+
+},2500);
+
+}
