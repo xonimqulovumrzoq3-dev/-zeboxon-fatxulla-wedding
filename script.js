@@ -190,3 +190,15 @@ btn.style.transform="scale(1)";
 });
 
 });
+// Hero Parallax
+
+window.addEventListener("scroll",()=>{
+
+const scroll=window.scrollY;
+
+const hero=document.querySelector(".hero");
+
+hero.style.transform=
+`translateY(${scroll*.25}px)`;
+
+});
