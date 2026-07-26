@@ -73,3 +73,14 @@ card.style.background="rgba(255,255,255,.10)";
 }
 
 });
+const openBtn = document.getElementById("openBtn");
+
+if (openBtn) {
+  openBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    document.getElementById("about").scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+}
