@@ -1019,3 +1019,60 @@ transform:
 scale(.97);
 
 }
+.glass{
+position:relative;
+isolation:isolate;
+}
+
+.glass::before{
+content:"";
+position:absolute;
+inset:1px;
+border-radius:inherit;
+padding:1px;
+background:linear-gradient(
+135deg,
+rgba(255,255,255,.7),
+rgba(255,255,255,.05),
+rgba(255,255,255,.45)
+);
+-webkit-mask:
+linear-gradient(#000 0 0) content-box,
+linear-gradient(#000 0 0);
+-webkit-mask-composite:xor;
+pointer-events:none;
+}
+
+.glass::after{
+content:"";
+position:absolute;
+top:-40%;
+left:-60%;
+width:220%;
+height:80%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.18),
+transparent
+);
+transform:rotate(18deg);
+animation:shine 8s linear infinite;
+pointer-events:none;
+}
+
+@keyframes shine{
+
+0%{
+
+left:-180%;
+
+}
+
+100%{
+
+left:180%;
+
+}
+
+}
