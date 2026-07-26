@@ -148,3 +148,30 @@ loader.style.visibility="hidden";
 },2500);
 
 }
+const dockMusic=document.getElementById("musicOpen");
+
+if(dockMusic){
+
+dockMusic.onclick=()=>{
+
+if(!playing){
+
+music.play();
+
+playing=true;
+
+dockMusic.innerHTML="⏸";
+
+}else{
+
+music.pause();
+
+playing=false;
+
+dockMusic.innerHTML="🎵";
+
+}
+
+}
+
+}
