@@ -202,3 +202,29 @@ hero.style.transform=
 `translateY(${scroll*.25}px)`;
 
 });
+document.querySelectorAll(".glass").forEach(glass=>{
+
+glass.addEventListener("mousemove",(e)=>{
+
+const rect=glass.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+
+const y=e.clientY-rect.top;
+
+glass.style.background=`
+radial-gradient(circle at ${x}px ${y}px,
+rgba(255,255,255,.28),
+rgba(255,255,255,.10) 45%,
+rgba(255,255,255,.05) 100%)
+`;
+
+});
+
+glass.addEventListener("mouseleave",()=>{
+
+glass.style.background="rgba(255,255,255,.12)";
+
+});
+
+});
