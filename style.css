@@ -13,13 +13,25 @@ overflow-x:hidden;
 }
 
 .background{
+.background{
 position:fixed;
 inset:0;
-background-image:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80");
+background-image:url("IMG_1756.jpeg");
 background-size:cover;
 background-position:center;
-filter:brightness(.45);
+background-repeat:no-repeat;
 z-index:-3;
+filter:brightness(.45);
+animation:bgZoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgZoom{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.08);
+}
 }
 
 .overlay{
