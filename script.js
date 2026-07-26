@@ -228,3 +228,16 @@ glass.style.background="rgba(255,255,255,.12)";
 });
 
 });
+html{
+
+scroll-behavior:smooth;
+
+scroll-padding-top:30px;
+
+}
+
+body{
+
+overscroll-behavior:none;
+
+}
