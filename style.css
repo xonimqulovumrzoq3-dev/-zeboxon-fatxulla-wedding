@@ -342,3 +342,117 @@ transform:translateY(-8px);
 box-shadow:0 25px 70px rgba(255,255,255,.18);
 
 }
+/* ---------- Glass Light ---------- */
+
+.glass::before{
+content:"";
+position:absolute;
+top:-40%;
+left:-40%;
+width:220px;
+height:220px;
+background:radial-gradient(circle,
+rgba(255,255,255,.45),
+transparent 70%);
+filter:blur(25px);
+animation:lightMove 8s linear infinite;
+pointer-events:none;
+}
+
+@keyframes lightMove{
+
+0%{
+transform:translate(-80px,-60px);
+}
+
+50%{
+transform:translate(220px,180px);
+}
+
+100%{
+transform:translate(-80px,-60px);
+}
+
+}
+
+/* ---------- Card Animation ---------- */
+
+.card{
+
+opacity:0;
+
+transform:translateY(40px);
+
+animation:cardShow .8s forwards;
+
+}
+
+.card:nth-child(1){
+
+animation-delay:.2s;
+
+}
+
+.card:nth-child(2){
+
+animation-delay:.35s;
+
+}
+
+.card:nth-child(3){
+
+animation-delay:.5s;
+
+}
+
+.card:nth-child(4){
+
+animation-delay:.65s;
+
+}
+
+@keyframes cardShow{
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ---------- Glow ---------- */
+
+button{
+
+box-shadow:
+
+0 10px 30px rgba(255,255,255,.25);
+
+}
+
+button:hover{
+
+box-shadow:
+
+0 20px 60px rgba(255,255,255,.35);
+
+}
+
+/* ---------- Scroll Bar ---------- */
+
+::-webkit-scrollbar{
+
+width:6px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#ffffff55;
+
+border-radius:30px;
+
+}
