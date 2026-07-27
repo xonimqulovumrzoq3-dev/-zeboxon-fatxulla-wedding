@@ -452,21 +452,19 @@
         .wish-textarea { resize: none; height: 80px; }
         .send-wish-btn { background: var(--accent-color); color: #ffffff; border: none; padding: 12px; border-radius: 14px; font-weight: 600; cursor: pointer; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
         
-        /* YOKI YON TOMONGA SCROLL QILINADIGAN QILIB YANGILANGAN QISMI */
         .wishes-list {
             display: flex;
-            flex-direction: row; /* Yonma-yon joylashtirish */
+            flex-direction: row;
             gap: 15px;
             margin-top: 15px;
-            overflow-x: auto; /* Yon tomonga scroll */
+            overflow-x: auto;
             overflow-y: hidden;
             text-align: left;
-            padding-bottom: 10px; /* Scrollbar ko'rinishi uchun */
-            scroll-snap-type: x mandatory; /* Kartalar o'rniga "taka-tak" tushishi uchun */
+            padding-bottom: 10px;
+            scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
         
-        /* Maxsus yupqa chiroyli Scrollbar */
         .wishes-list::-webkit-scrollbar {
             height: 6px;
         }
@@ -487,10 +485,10 @@
             border: 1px solid var(--card-border);
             padding: 16px;
             border-radius: 14px;
-            min-width: 250px; /* Har bir karta kengligi */
+            min-width: 250px;
             max-width: 250px;
-            flex-shrink: 0; /* Siqilib ketmasligi uchun */
-            scroll-snap-align: start; /* Scroll qilinganda bir-biridan to'g'ri masofada to'xtashi */
+            flex-shrink: 0;
+            scroll-snap-align: start;
             white-space: normal;
         }
         body.girl-theme .wish-item {
@@ -498,6 +496,66 @@
         }
         .wish-author { font-size: 13px; font-weight: 700; color: var(--accent-color); margin-bottom: 6px; }
         .wish-text { font-size: 14px; color: var(--text-main); line-height: 1.5; }
+
+        /* BOG'LANISH BO'LIMI USLUBLARI */
+        .contact-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .contact-item-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 14px 18px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+        body.girl-theme .contact-item-btn {
+            background: rgba(255, 255, 255, 0.6);
+            border-color: rgba(255, 105, 180, 0.2);
+        }
+        .contact-item-btn:active {
+            transform: scale(0.97);
+        }
+        .contact-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #ffffff;
+        }
+        .contact-icon.phone { background: #10b981; }
+        .contact-icon.telegram { background: #229ed9; }
+        .contact-icon.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .contact-text {
+            text-align: left;
+        }
+        .contact-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .contact-val {
+            font-size: 14px;
+            color: var(--text-main);
+        }
 
         /* Yakuniy matn */
         .footer-message { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-top: 10px; text-align: center; }
@@ -566,14 +624,14 @@
         <div class="glass-card" style="padding: 40px 20px;">
             <div style="font-size: 30px; color: var(--accent-color); margin-bottom: 10px;">❤️</div>
             <div class="names">Fatxulla <span class="ampersand">&</span> Zeboxon</div>
-            <div class="venue-address" style="margin-bottom: 0;">Sizni to'yimizda ko'rishdan nihoyatta hursand bo'lamiz.</div>
+            <div class="venue-address" style="margin-bottom: 0;">Sizni to'yimizda ko'rsak nihoyatta hursand bo'lamiz!</div>
         </div>
 
         <!-- FAQAT KELIN TARAFI UCHUN: Qiz bazmi -->
         <div class="glass-card girl-only-section" style="display: none; border-color: rgba(255, 105, 180, 0.4);">
             <div class="date-badge">6 Sentabr 2026</div>
             <div class="event-time">18:00</div>
-            <div class="venue-title">👑 Qiz Bazmi(Kuyov bazmi)</div>
+            <div class="venue-title">👑 Qiz Bazmi(Kuyov Bazmi)</div>
             <div class="venue-address">Qashqadaryo viloyati, Nishon tumani Nuriston shaharchasi, Jayron to’yxonasi</div>
             
             <button class="map-trigger-btn" onclick="openMapModal('girlParty')">
@@ -643,7 +701,6 @@
                 <button class="send-wish-btn" onclick="addWish()">Yuborish ✍️</button>
             </div>
 
-            <!-- YANGILANGAN QISM: Yon tomonga suriladigan ro'yxat -->
             <div class="wishes-list" id="wishesList">
                 <div class="wish-item">
                     <div class="wish-author">Azizbek</div>
@@ -678,6 +735,56 @@
             <div style="font-weight: 700; margin-bottom: 8px;">🧾 CHEK YUBORISH</div>
             <div class="venue-address" style="margin-bottom: 14px;">To'yona chekini yuborish uchun tasdiqlang</div>
             <a href="https://t.me/fatxullaxusanboyev" target="_blank" class="rsvp-btn">📤 Chek yuborish (Telegram)</a>
+        </div>
+
+        <!-- BOG'LANISH BO'LIMI (OXIRGI OYNADAN BITTA OLDINGI) -->
+        <div class="glass-card" style="text-align: left;">
+            <div style="font-weight: 700; margin-bottom: 4px; font-size: 16px; text-align: center;">📞 Biz bilan bog'lanish</div>
+            <div class="venue-address" style="margin-bottom: 12px; text-align: center;">Savollar bo'yicha murojaat qilishingiz mumkin</div>
+
+            <div class="contact-grid">
+                <!-- Telefon raqam -->
+                <a href="tel:+998901998899" class="contact-item-btn">
+                    <div class="contact-left">
+                        <div class="contact-icon phone">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Telefon raqam</div>
+                            <div class="contact-val">+998 90 199 88 99</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: var(--text-muted);"></i>
+                </a>
+
+                <!-- Telegram -->
+                <a href="https://t.me/fatxullaxusanboyev" target="_blank" class="contact-item-btn">
+                    <div class="contact-left">
+                        <div class="contact-icon telegram">
+                            <i class="fa-brands fa-telegram"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Telegram profil</div>
+                            <div class="contact-val">@fatxullaxusanboyev</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: var(--text-muted);"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://instagram.com/fatxullaxusanboyev" target="_blank" class="contact-item-btn">
+                    <div class="contact-left">
+                        <div class="contact-icon instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Instagram profil</div>
+                            <div class="contact-val">@fatxullaxusanboyev</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right" style="font-size: 12px; color: var(--text-muted);"></i>
+                </a>
+            </div>
         </div>
 
         <!-- Yakuniy Matn va Imzo -->
@@ -815,8 +922,6 @@
             `;
 
             list.prepend(item);
-            
-            // Yangi tilak qo'shilganda scrollni eng boshiga qaytarish
             list.scrollLeft = 0; 
             
             authorInput.value = '';
