@@ -624,15 +624,15 @@
         <div class="glass-card" style="padding: 40px 20px;">
             <div style="font-size: 30px; color: var(--accent-color); margin-bottom: 10px;">❤️</div>
             <div class="names">Fatxulla <span class="ampersand">&</span> Zeboxon</div>
-            <div class="venue-address" style="margin-bottom: 0;">Sizni to'yimizda ko'rsak nihoyatta hursand bo'lamiz!</div>
+            <div class="venue-address" style="margin-bottom: 0;">Sizni to'yimizda ko'rsak nihoyatta hursand bo'lamiz.</div>
         </div>
 
         <!-- FAQAT KELIN TARAFI UCHUN: Qiz bazmi -->
         <div class="glass-card girl-only-section" style="display: none; border-color: rgba(255, 105, 180, 0.4);">
             <div class="date-badge">6 Sentabr 2026</div>
             <div class="event-time">18:00</div>
-            <div class="venue-title">👑 Qiz Bazmi(Kuyov Bazmi)</div>
-            <div class="venue-address">Qashqadaryo viloyati, Nishon tumani Nuriston shaharchasi, Jayron to’yxonasi</div>
+            <div class="venue-title">👑 Qiz Bazmi(Jayron to'yxonasi)</div>
+            <div class="venue-address">Qashqadaryo viloyati, Nishon tumani nuriston shaharchasi, Jayron to’yxonasi</div>
             
             <button class="map-trigger-btn" onclick="openMapModal('girlParty')">
                 <i class="fa-solid fa-location-dot" style="color: var(--accent-color);"></i> Yo'l olish (Qiz bazmi)
@@ -702,14 +702,7 @@
             </div>
 
             <div class="wishes-list" id="wishesList">
-                <div class="wish-item">
-                    <div class="wish-author">Azizbek</div>
-                    <div class="wish-text">Baxtli bo'linglar, doim birga bo'linglar! To'y muborak! 🎉 Hayotingiz har doim mana shunday quvonchli lahzalarga boy bo'lsin.</div>
-                </div>
-                <div class="wish-item">
-                    <div class="wish-author">Madina</div>
-                    <div class="wish-text">O'zbekistonning eng go'zal juftligi bo'linglar! ✨ Umringiz oxirigacha baxt, omad va farovonlik tark etmasin.</div>
-                </div>
+                <!-- Saqlangan tilaklar shu yerga dinamik yuklanadi -->
             </div>
         </div>
 
@@ -901,10 +894,59 @@
             }
         }
 
+        // TILAKLARNI SAQLASH VA YUKLASH TIZIMI (LocalStorage)
+        const STORAGE_KEY = 'fatxulla_zeboxon_wishes_v1';
+
+        function loadWishes() {
+            const list = document.getElementById('wishesList');
+            let wishes = [];
+            
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    wishes = JSON.parse(saved);
+                }
+            } catch(e) {
+                console.log(e);
+            }
+
+            // Agar xotirada hech narsa bo'lmasa, boshlang'ich standart tilaklarni qo'shamiz
+            if (wishes.length === 0) {
+                wishes = [
+                    { author: "Azizbek", text: "Baxtli bo'linglar, doim birga bo'linglar! To'y muborak! 🎉 Hayotingiz har doim mana shunday quvonchli lahzalarga boy bo'lsin." },
+                    { author: "Madina", text: "O'zbekistonning eng go'zal juftligi bo'linglar! ✨ Umringiz oxirigacha baxt, omad va farovonlik tark etmasin." }
+                ];
+                saveWishesToStorage(wishes);
+            }
+
+            renderWishes(wishes);
+        }
+
+        function renderWishes(wishes) {
+            const list = document.getElementById('wishesList');
+            list.innerHTML = '';
+            wishes.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('wish-item');
+                div.innerHTML = `
+                    <div class="wish-author">${escapeHtml(item.author)}</div>
+                    <div class="wish-text">${escapeHtml(item.text)}</div>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        function saveWishesToStorage(wishes) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(wishes));
+            } catch(e) {
+                console.log(e);
+            }
+        }
+
         function addWish() {
             const authorInput = document.getElementById('wishAuthor');
             const textInput = document.getElementById('wishText');
-            const list = document.getElementById('wishesList');
 
             const author = authorInput.value.trim();
             const text = textInput.value.trim();
@@ -914,20 +956,32 @@
                 return;
             }
 
-            const item = document.createElement('div');
-            item.classList.add('wish-item');
-            item.innerHTML = `
-                <div class="wish-author">${escapeHtml(author)}</div>
-                <div class="wish-text">${escapeHtml(text)}</div>
-            `;
+            let wishes = [];
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    wishes = JSON.parse(saved);
+                }
+            } catch(e) {}
 
-            list.prepend(item);
+            const newWish = { author: author, text: text };
+            wishes.unshift(newWish); // Yangi tilakni boshiga qo'shish
+
+            saveWishesToStorage(wishes);
+            renderWishes(wishes);
+
+            const list = document.getElementById('wishesList');
             list.scrollLeft = 0; 
             
             authorInput.value = '';
             textInput.value = '';
-            showToast("Tilagingiz qo'shildi!");
+            showToast("Tilagingiz butun umrga saqlandi! ✨");
         }
+
+        // Sahifa yuklanganda tilaklarni chiqarish
+        document.addEventListener('DOMContentLoaded', () => {
+            loadWishes();
+        });
 
         function escapeHtml(str) {
             return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
