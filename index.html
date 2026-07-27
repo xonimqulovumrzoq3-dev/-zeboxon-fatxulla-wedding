@@ -370,7 +370,7 @@
             transform: scale(0.96);
         }
 
-        /* Modal oyna dizayni (3 ta variant uchun) */
+        /* Modal oyna dizayni */
         .map-modal {
             position: fixed;
             top: 0;
@@ -412,47 +412,14 @@
             transform: translateY(0);
         }
 
-        .modal-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 6px;
-            color: var(--text-main);
-        }
+        .modal-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; color: var(--text-main); }
+        .modal-subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+        .map-options-grid { display: flex; flex-direction: column; gap: 12px; }
 
-        .modal-subtitle {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        .map-options-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .map-option-btn.android {
-            background: #10b981;
-            color: #ffffff;
-            border: none;
-        }
-
-        .map-option-btn.iphone {
-            background: #f1f5f9;
-            color: #0f172a;
-            border: 1px solid #cbd5e1;
-        }
-        body.girl-theme .map-option-btn.iphone {
-            background: #ffffff;
-            color: #4a3b4c;
-            border-color: rgba(255, 105, 180, 0.3);
-        }
-
-        .map-option-btn.yandex {
-            background: #facc15;
-            color: #1e293b;
-            border: none;
-        }
+        .map-option-btn.android { background: #10b981; color: #ffffff; border: none; }
+        .map-option-btn.iphone { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; }
+        body.girl-theme .map-option-btn.iphone { background: #ffffff; color: #4a3b4c; border-color: rgba(255, 105, 180, 0.3); }
+        .map-option-btn.yandex { background: #facc15; color: #1e293b; border: none; }
 
         .map-option-btn {
             padding: 15px 20px;
@@ -469,286 +436,91 @@
             transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
-        .map-option-btn:active {
-            transform: scale(0.97);
-        }
-
-        .close-modal-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-size: 14px;
-            font-weight: 600;
-            margin-top: 16px;
-            cursor: pointer;
-            padding: 8px;
-        }
+        .map-option-btn:active { transform: scale(0.97); }
+        .close-modal-btn { background: transparent; border: none; color: var(--text-muted); font-size: 14px; font-weight: 600; margin-top: 16px; cursor: pointer; padding: 8px; }
 
         /* Jonli efir bo'limi */
-        .live-stream-box {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 20px;
-            padding: 20px;
-            text-align: center;
-            margin-top: 15px;
-        }
-        .live-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #ef4444;
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            animation: pulse-live 2s infinite;
-        }
-        @keyframes pulse-live {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-        .live-link-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: #ef4444;
-            color: #ffffff;
-            width: 100%;
-            padding: 12px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
-        }
+        .live-stream-box { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 20px; padding: 20px; text-align: center; margin-top: 15px; }
+        .live-badge { display: inline-flex; align-items: center; gap: 6px; background: #ef4444; color: #ffffff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; margin-bottom: 10px; animation: pulse-live 2s infinite; }
+        @keyframes pulse-live { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        .live-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #ef4444; color: #ffffff; width: 100%; padding: 12px; border-radius: 30px; font-size: 14px; font-weight: 600; text-decoration: none; margin-top: 10px; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3); }
 
         /* Samimiy tilaklar bo'limi */
-        .wishes-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        .wish-input, .wish-textarea {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--card-border);
-            padding: 12px 16px;
-            border-radius: 14px;
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 14px;
-            outline: none;
-        }
-        body.girl-theme .wish-input, body.girl-theme .wish-textarea {
-            background: rgba(255, 255, 255, 0.7);
-        }
-        .wish-textarea {
-            resize: none;
-            height: 80px;
-        }
-        .send-wish-btn {
-            background: var(--accent-color);
-            color: #ffffff;
-            border: none;
-            padding: 12px;
-            border-radius: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
+        .wishes-form { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .wish-input, .wish-textarea { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--card-border); padding: 12px 16px; border-radius: 14px; color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; outline: none; }
+        body.girl-theme .wish-input, body.girl-theme .wish-textarea { background: rgba(255, 255, 255, 0.7); }
+        .wish-textarea { resize: none; height: 80px; }
+        .send-wish-btn { background: var(--accent-color); color: #ffffff; border: none; padding: 12px; border-radius: 14px; font-weight: 600; cursor: pointer; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        
+        /* YOKI YON TOMONGA SCROLL QILINADIGAN QILIB YANGILANGAN QISMI */
         .wishes-list {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            flex-direction: row; /* Yonma-yon joylashtirish */
+            gap: 15px;
             margin-top: 15px;
-            max-height: 220px;
-            overflow-y: auto;
+            overflow-x: auto; /* Yon tomonga scroll */
+            overflow-y: hidden;
             text-align: left;
-            padding-right: 4px;
+            padding-bottom: 10px; /* Scrollbar ko'rinishi uchun */
+            scroll-snap-type: x mandatory; /* Kartalar o'rniga "taka-tak" tushishi uchun */
+            -webkit-overflow-scrolling: touch;
         }
+        
+        /* Maxsus yupqa chiroyli Scrollbar */
+        .wishes-list::-webkit-scrollbar {
+            height: 6px;
+        }
+        .wishes-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        .wishes-list::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 10px;
+        }
+        body.girl-theme .wishes-list::-webkit-scrollbar-track {
+            background: rgba(255, 105, 180, 0.2);
+        }
+
         .wish-item {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--card-border);
-            padding: 12px;
+            padding: 16px;
             border-radius: 14px;
+            min-width: 250px; /* Har bir karta kengligi */
+            max-width: 250px;
+            flex-shrink: 0; /* Siqilib ketmasligi uchun */
+            scroll-snap-align: start; /* Scroll qilinganda bir-biridan to'g'ri masofada to'xtashi */
+            white-space: normal;
         }
         body.girl-theme .wish-item {
             background: rgba(255, 255, 255, 0.6);
         }
-        .wish-author {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 4px;
-        }
-        .wish-text {
-            font-size: 13px;
-            color: var(--text-main);
-            line-height: 1.4;
-        }
+        .wish-author { font-size: 13px; font-weight: 700; color: var(--accent-color); margin-bottom: 6px; }
+        .wish-text { font-size: 14px; color: var(--text-main); line-height: 1.5; }
 
         /* Yakuniy matn */
-        .footer-message {
-            font-size: 15px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-top: 10px;
-            text-align: center;
-        }
-        .footer-signature {
-            font-family: 'Great Vibes', cursive;
-            font-size: 32px;
-            color: var(--accent-color);
-            margin-top: 6px;
-            text-align: center;
-        }
-
-        .countdown-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .countdown-box {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--card-border);
-            padding: 10px 4px;
-            border-radius: 14px;
-        }
-
-        body.girl-theme .countdown-box {
-            background: rgba(255, 255, 255, 0.6);
-        }
-
+        .footer-message { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-top: 10px; text-align: center; }
+        .footer-signature { font-family: 'Great Vibes', cursive; font-size: 32px; color: var(--accent-color); margin-top: 6px; text-align: center; }
+        .countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 15px; }
+        .countdown-box { background: rgba(255, 255, 255, 0.04); border: 1px solid var(--card-border); padding: 10px 4px; border-radius: 14px; }
+        body.girl-theme .countdown-box { background: rgba(255, 255, 255, 0.6); }
         .countdown-number { font-size: 20px; font-weight: 700; color: var(--accent-color); }
         .countdown-label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; }
-
-        .creative-card {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.95));
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 22px;
-            margin: 15px 0;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            text-align: left;
-        }
-
-        body.girl-theme .creative-card {
-            background: linear-gradient(135deg, rgba(255, 182, 193, 0.85), rgba(255, 105, 180, 0.95));
-        }
-
-        .card-chip {
-            width: 36px;
-            height: 26px;
-            background: linear-gradient(135deg, #ffd700, #ffa500);
-            border-radius: 6px;
-            margin-bottom: 12px;
-            opacity: 0.9;
-        }
-
-        .card-number-display {
-            font-family: monospace;
-            font-size: 18px;
-            letter-spacing: 3px;
-            color: #ffffff;
-            margin-bottom: 12px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-holder {
-            font-size: 13px;
-            color: #cbd5e1;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        body.girl-theme .card-holder {
-            color: #fff;
-        }
-
-        .bank-logo {
-            font-size: 14px;
-            font-weight: 700;
-            color: #38bdf8;
-            background: rgba(56, 189, 248, 0.15);
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-
-        body.girl-theme .bank-logo {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        .copy-btn, .rsvp-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            color: var(--text-main);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            margin-top: 5px;
-            transition: all 0.2s ease;
-        }
-
-        .copy-btn:active, .rsvp-btn:active {
-            transform: scale(0.96);
-        }
-
-        .rsvp-btn {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            border: 1px solid rgba(59, 130, 246, 0.4);
-            color: white;
-            width: 100%;
-            padding: 14px;
-            font-size: 15px;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
-
-        body.girl-theme .rsvp-btn {
-            background: linear-gradient(135deg, #ff69b4, #ff1493);
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: rgba(15, 23, 42, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 14px;
-            transition: transform 0.4s ease;
-            z-index: 10000;
-        }
+        .creative-card { background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.95)); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 22px; margin: 15px 0; position: relative; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-align: left; }
+        body.girl-theme .creative-card { background: linear-gradient(135deg, rgba(255, 182, 193, 0.85), rgba(255, 105, 180, 0.95)); }
+        .card-chip { width: 36px; height: 26px; background: linear-gradient(135deg, #ffd700, #ffa500); border-radius: 6px; margin-bottom: 12px; opacity: 0.9; }
+        .card-number-display { font-family: monospace; font-size: 18px; letter-spacing: 3px; color: #ffffff; margin-bottom: 12px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; }
+        .card-holder { font-size: 13px; color: #cbd5e1; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        body.girl-theme .card-holder { color: #fff; }
+        .bank-logo { font-size: 14px; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.15); padding: 4px 10px; border-radius: 20px; }
+        body.girl-theme .bank-logo { color: #fff; background: rgba(255, 255, 255, 0.25); }
+        .copy-btn, .rsvp-btn { background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main); padding: 10px 20px; border-radius: 30px; font-size: 13px; font-weight: 500; cursor: pointer; margin-top: 5px; transition: all 0.2s ease; }
+        .copy-btn:active, .rsvp-btn:active { transform: scale(0.96); }
+        .rsvp-btn { background: linear-gradient(135deg, #2563eb, #1d4ed8); border: 1px solid rgba(59, 130, 246, 0.4); color: white; width: 100%; padding: 14px; font-size: 15px; font-weight: 600; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); text-decoration: none; display: inline-block; text-align: center; }
+        body.girl-theme .rsvp-btn { background: linear-gradient(135deg, #ff69b4, #ff1493); box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3); }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255, 255, 255, 0.2); color: white; padding: 12px 24px; border-radius: 30px; font-size: 14px; transition: transform 0.4s ease; z-index: 10000; }
         .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
 </head>
@@ -802,7 +574,7 @@
             <div class="date-badge">6 Sentabr 2026</div>
             <div class="event-time">18:00</div>
             <div class="venue-title">👑 Qiz Bazmi</div>
-            <div class="venue-address">Qashqadaryo viloyati, Nishon tumani nuriston shaharchasi, Jayron to’yxonasi</div>
+            <div class="venue-address">Qashqadaryo viloyati, Nishon tumani Nuriston shaharchasi, Jayron to’yxonasi</div>
             
             <button class="map-trigger-btn" onclick="openMapModal('girlParty')">
                 <i class="fa-solid fa-location-dot" style="color: var(--accent-color);"></i> Yo'l olish (Qiz bazmi)
@@ -861,7 +633,7 @@
         </div>
 
         <!-- Samimiy Tilaklar Bo'limi -->
-        <div class="glass-card" style="text-align: left;">
+        <div class="glass-card" style="text-align: left; overflow: hidden;">
             <div style="font-weight: 700; margin-bottom: 4px; font-size: 16px; text-align: center;">💌 Samimiy Tilaklar</div>
             <div class="venue-address" style="margin-bottom: 10px; text-align: center;">O'z dildan chiqqan tilaklaringizni yozib qoldiring</div>
             
@@ -871,15 +643,15 @@
                 <button class="send-wish-btn" onclick="addWish()">Yuborish ✍️</button>
             </div>
 
+            <!-- YANGILANGAN QISM: Yon tomonga suriladigan ro'yxat -->
             <div class="wishes-list" id="wishesList">
-                <!-- Oldindan namunadagi ba'zi tilaklar -->
                 <div class="wish-item">
                     <div class="wish-author">Azizbek</div>
-                    <div class="wish-text">Baxtli bo'linglar, doim birga bo'linglar! To'y muborak! 🎉</div>
+                    <div class="wish-text">Baxtli bo'linglar, doim birga bo'linglar! To'y muborak! 🎉 Hayotingiz har doim mana shunday quvonchli lahzalarga boy bo'lsin.</div>
                 </div>
                 <div class="wish-item">
                     <div class="wish-author">Madina</div>
-                    <div class="wish-text">O'zbekistonning eng go'zal juftligi bo'linglar! ✨</div>
+                    <div class="wish-text">O'zbekistonning eng go'zal juftligi bo'linglar! ✨ Umringiz oxirigacha baxt, omad va farovonlik tark etmasin.</div>
                 </div>
             </div>
         </div>
@@ -921,9 +693,7 @@
             <div class="modal-title">Xaritani tanlang</div>
             <div class="modal-subtitle">Manzilga borish uchun qulay ilovani tanlang</div>
             
-            <div class="map-options-grid" id="mapOptionsContainer">
-                <!-- JS orqali dinamik to'ldiriladi (To'y yoki Qiz bazmi uchun) -->
-            </div>
+            <div class="map-options-grid" id="mapOptionsContainer"></div>
 
             <button class="close-modal-btn" onclick="closeMapModal()">Bekor qilish</button>
         </div>
@@ -969,12 +739,10 @@
             let yandexLink = "";
 
             if (type === 'girlParty') {
-                // Qiz bazmi kordinatalari: 38.48740° С, 65.64003° В
                 androidLink = "https://maps.google.com/?q=38.48740,65.64003";
                 iphoneLink = "https://maps.apple.com/?q=Jayron+Toyxonasi&ll=38.48740,65.64003";
                 yandexLink = "https://yandex.ru/maps/?rtext=~38.48740,65.64003&ritt=auto";
             } else {
-                // Asosiy to'y (Orom to'yxonasi)
                 androidLink = "https://maps.google.com/?q=40.38060,69.25289";
                 iphoneLink = "https://maps.apple.com/?q=Orom+Toyxonasi&ll=40.38060,69.25289";
                 yandexLink = "https://yandex.ru/maps/?rtext=~40.38060,69.25289&ritt=auto";
@@ -1047,6 +815,10 @@
             `;
 
             list.prepend(item);
+            
+            // Yangi tilak qo'shilganda scrollni eng boshiga qaytarish
+            list.scrollLeft = 0; 
+            
             authorInput.value = '';
             textInput.value = '';
             showToast("Tilagingiz qo'shildi!");
