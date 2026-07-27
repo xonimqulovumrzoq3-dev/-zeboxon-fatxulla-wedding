@@ -288,6 +288,61 @@
         .venue-title { font-size: 18px; font-weight: 600; color: var(--text-main); margin-bottom: 6px; }
         .venue-address { font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; }
 
+        /* iOS Stilidagi Kalendar */
+        .ios-calendar {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 16px;
+            margin-top: 15px;
+            text-align: left;
+        }
+        body.girl-theme .ios-calendar {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        .cal-header {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .cal-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            text-align: center;
+        }
+        .cal-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 50%;
+            color: var(--text-main);
+        }
+        .cal-day.muted {
+            color: var(--text-muted);
+            opacity: 0.4;
+        }
+        .cal-day.selected {
+            background: var(--accent-color);
+            color: #ffffff;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(251, 113, 133, 0.4);
+        }
+
         /* Asosiy Yo'l olish tugmasi */
         .map-trigger-btn {
             background: rgba(255, 255, 255, 0.08);
@@ -376,14 +431,12 @@
             gap: 12px;
         }
 
-        /* 1. Android - Yashil rang va logo */
         .map-option-btn.android {
             background: #10b981;
             color: #ffffff;
             border: none;
         }
 
-        /* 2. iPhone - Oq va kulrang, Apple logo */
         .map-option-btn.iphone {
             background: #f1f5f9;
             color: #0f172a;
@@ -395,7 +448,6 @@
             border-color: rgba(255, 105, 180, 0.3);
         }
 
-        /* 3. Yandex - Sariq rang */
         .map-option-btn.yandex {
             background: #facc15;
             color: #1e293b;
@@ -430,6 +482,134 @@
             margin-top: 16px;
             cursor: pointer;
             padding: 8px;
+        }
+
+        /* Jonli efir bo'limi */
+        .live-stream-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #ef4444;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            animation: pulse-live 2s infinite;
+        }
+        @keyframes pulse-live {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .live-link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #ef4444;
+            color: #ffffff;
+            width: 100%;
+            padding: 12px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        /* Samimiy tilaklar bo'limi */
+        .wishes-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .wish-input, .wish-textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            padding: 12px 16px;
+            border-radius: 14px;
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+        body.girl-theme .wish-input, body.girl-theme .wish-textarea {
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .wish-textarea {
+            resize: none;
+            height: 80px;
+        }
+        .send-wish-btn {
+            background: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .wishes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+            max-height: 220px;
+            overflow-y: auto;
+            text-align: left;
+            padding-right: 4px;
+        }
+        .wish-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--card-border);
+            padding: 12px;
+            border-radius: 14px;
+        }
+        body.girl-theme .wish-item {
+            background: rgba(255, 255, 255, 0.6);
+        }
+        .wish-author {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 4px;
+        }
+        .wish-text {
+            font-size: 13px;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        /* Yakuniy matn */
+        .footer-message {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .footer-signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 32px;
+            color: var(--accent-color);
+            margin-top: 6px;
+            text-align: center;
         }
 
         .countdown-grid {
@@ -617,16 +797,44 @@
             <div class="venue-address" style="margin-bottom: 0;">Sizni to'yimizda ko'rsak murg'ak qalbimiz quvonadi.</div>
         </div>
 
+        <!-- FAQAT KELIN TARAFI UCHUN: Qiz bazmi -->
+        <div class="glass-card girl-only-section" style="display: none; border-color: rgba(255, 105, 180, 0.4);">
+            <div class="date-badge">6 Sentabr 2026</div>
+            <div class="event-time">18:00</div>
+            <div class="venue-title">👑 Qiz Bazmi</div>
+            <div class="venue-address">Qashqadaryo viloyati, Nishon tumani nuriston shaharchasi, Jayron to’yxonasi</div>
+            
+            <button class="map-trigger-btn" onclick="openMapModal('girlParty')">
+                <i class="fa-solid fa-location-dot" style="color: var(--accent-color);"></i> Yo'l olish (Qiz bazmi)
+            </button>
+        </div>
+
         <div class="glass-card">
             <div class="date-badge">13 Sentabr 2026</div>
             <div class="event-time">19:00</div>
             <div class="venue-title">Orom To'yxonasi</div>
             <div class="venue-address">Toshkent viloyati Bekobod tumani Zafar shaharchasi</div>
             
-            <!-- Yo'l olish tugmasi (Modalni ochadi) -->
-            <button class="map-trigger-btn" onclick="openMapModal()">
-                <i class="fa-solid fa-location-dot" style="color: var(--accent-color);"></i> Yo'l olish (Xarita)
+            <button class="map-trigger-btn" onclick="openMapModal('wedding')">
+                <i class="fa-solid fa-location-dot" style="color: var(--accent-color);"></i> Yo'l olish (To'y)
             </button>
+
+            <!-- iOS Stilidagi Kalendar (Sentabr 2026) -->
+            <div class="ios-calendar">
+                <div class="cal-header">Sentabr 2026</div>
+                <div class="cal-weekdays">
+                    <div>Du</div><div>Se</div><div>Ch</div><div>Pa</div><div>Ju</div><div>Sh</div><div>Ya</div>
+                </div>
+                <div class="cal-grid">
+                    <div class="cal-day muted">31</div>
+                    <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div>
+                    <div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day selected">13</div><div class="cal-day">14</div>
+                    <div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day">21</div>
+                    <div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div>
+                    <div class="cal-day">29</div><div class="cal-day">30</div>
+                    <div class="cal-day muted">1</div><div class="cal-day muted">2</div><div class="cal-day muted">3</div><div class="cal-day muted">4</div>
+                </div>
+            </div>
         </div>
 
         <div class="glass-card">
@@ -636,6 +844,43 @@
                 <div class="countdown-box"><div class="countdown-number" id="hours">00</div><div class="countdown-label">Soat</div></div>
                 <div class="countdown-box"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">Min</div></div>
                 <div class="countdown-box"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">Sek</div></div>
+            </div>
+        </div>
+
+        <!-- Jonli Efir Bo'limi -->
+        <div class="glass-card">
+            <div style="font-weight: 700; margin-bottom: 4px; font-size: 16px;">🎥 Jonli Efir</div>
+            <div class="venue-address" style="margin-bottom: 10px;">To'yga kela olmaganlar uchun jonli efir kuzatish imkoniyati</div>
+            <div class="live-stream-box">
+                <div class="live-badge"><i class="fa-solid fa-circle" style="font-size: 8px;"></i> Efir kutilmoqda</div>
+                <div class="venue-address" style="margin-bottom: 0; font-size: 13px;">To'y kuni ushbu bo'limda jonli efir havolasi faollashadi.</div>
+                <a href="https://t.me/fatxullaxusanboyev" target="_blank" class="live-link-btn">
+                    <i class="fa-solid fa-play"></i> Jonli efirga o'tish
+                </a>
+            </div>
+        </div>
+
+        <!-- Samimiy Tilaklar Bo'limi -->
+        <div class="glass-card" style="text-align: left;">
+            <div style="font-weight: 700; margin-bottom: 4px; font-size: 16px; text-align: center;">💌 Samimiy Tilaklar</div>
+            <div class="venue-address" style="margin-bottom: 10px; text-align: center;">O'z dildan chiqqan tilaklaringizni yozib qoldiring</div>
+            
+            <div class="wishes-form">
+                <input type="text" id="wishAuthor" class="wish-input" placeholder="Ismingiz (Kimdan):" />
+                <textarea id="wishText" class="wish-textarea" placeholder="Tilak va tabriklaringizni yozing..."></textarea>
+                <button class="send-wish-btn" onclick="addWish()">Yuborish ✍️</button>
+            </div>
+
+            <div class="wishes-list" id="wishesList">
+                <!-- Oldindan namunadagi ba'zi tilaklar -->
+                <div class="wish-item">
+                    <div class="wish-author">Azizbek</div>
+                    <div class="wish-text">Baxtli bo'linglar, doim birga bo'linglar! To'y muborak! 🎉</div>
+                </div>
+                <div class="wish-item">
+                    <div class="wish-author">Madina</div>
+                    <div class="wish-text">O'zbekistonning eng go'zal juftligi bo'linglar! ✨</div>
+                </div>
             </div>
         </div>
 
@@ -649,7 +894,7 @@
                 <div class="card-number-display">5614 6821 1130 4913</div>
                 <div class="card-footer">
                     <div class="card-holder">Fatxulla Xusanboyev</div>
-                    <div class="bank-logo">UzCard</div>
+                    <div class="bank-logo">Uzcard</div>
                 </div>
             </div>
 
@@ -662,29 +907,22 @@
             <div class="venue-address" style="margin-bottom: 14px;">To'yona chekini yuborish uchun tasdiqlang</div>
             <a href="https://t.me/fatxullaxusanboyev" target="_blank" class="rsvp-btn">📤 Chek yuborish (Telegram)</a>
         </div>
+
+        <!-- Yakuniy Matn va Imzo -->
+        <div class="glass-card" style="padding: 30px 20px;">
+            <div class="footer-message">Sizlarni baxtli kunimizda kutib qolamiz!</div>
+            <div class="footer-signature">Fatxulla & Zeboxon</div>
+        </div>
     </div>
 
     <!-- Xarita variantlari uchun Modal Oyna -->
     <div class="map-modal" id="mapModal" onclick="closeMapModalOutside(event)">
         <div class="map-modal-content">
             <div class="modal-title">Xaritani tanlang</div>
-            <div class="modal-subtitle">To'yxonaga borish uchun qulay ilovani tanlang</div>
+            <div class="modal-subtitle">Manzilga borish uchun qulay ilovani tanlang</div>
             
-            <div class="map-options-grid">
-                <!-- 1. Android (Google Maps) - Yashil rang va android logo -->
-                <a href="https://maps.google.com/?q=40.38060,69.25289" target="_blank" class="map-option-btn android" onclick="closeMapModal()">
-                    <i class="fa-brands fa-android" style="font-size: 20px;"></i> Android (Google Maps)
-                </a>
-
-                <!-- 2. iPhone (Apple Maps) - Oq/kulrang, Apple logo -->
-                <a href="https://maps.apple.com/?q=Orom+To'yxonasi&ll=40.38060,69.25289" target="_blank" class="map-option-btn iphone" onclick="closeMapModal()">
-                    <i class="fa-brands fa-apple" style="font-size: 20px;"></i> iPhone (Apple Maps)
-                </a>
-
-                <!-- 3. Yandex Navigator - Sariq rang -->
-                <a href="https://yandex.ru/maps/?rtext=~40.38060,69.25289&ritt=auto" target="_blank" class="map-option-btn yandex" onclick="closeMapModal()">
-                    <i class="fa-solid fa-diamond-turn-right" style="font-size: 18px;"></i> Yandex Navigator
-                </a>
+            <div class="map-options-grid" id="mapOptionsContainer">
+                <!-- JS orqali dinamik to'ldiriladi (To'y yoki Qiz bazmi uchun) -->
             </div>
 
             <button class="close-modal-btn" onclick="closeMapModal()">Bekor qilish</button>
@@ -700,7 +938,9 @@
         const bgMusic = document.getElementById('bg-music');
         const musicToggle = document.getElementById('music-toggle');
         const mapModal = document.getElementById('mapModal');
+        const mapOptionsContainer = document.getElementById('mapOptionsContainer');
         let isPlaying = false;
+        let currentThemeMode = 'boy';
 
         openBtn.addEventListener('click', () => {
             welcomeOverlay.classList.add('hidden');
@@ -723,7 +963,35 @@
             }
         });
 
-        function openMapModal() {
+        function openMapModal(type) {
+            let androidLink = "";
+            let iphoneLink = "";
+            let yandexLink = "";
+
+            if (type === 'girlParty') {
+                // Qiz bazmi kordinatalari: 38.48740° С, 65.64003° В
+                androidLink = "https://maps.google.com/?q=38.48740,65.64003";
+                iphoneLink = "https://maps.apple.com/?q=Jayron+Toyxonasi&ll=38.48740,65.64003";
+                yandexLink = "https://yandex.ru/maps/?rtext=~38.48740,65.64003&ritt=auto";
+            } else {
+                // Asosiy to'y (Orom to'yxonasi)
+                androidLink = "https://maps.google.com/?q=40.38060,69.25289";
+                iphoneLink = "https://maps.apple.com/?q=Orom+Toyxonasi&ll=40.38060,69.25289";
+                yandexLink = "https://yandex.ru/maps/?rtext=~40.38060,69.25289&ritt=auto";
+            }
+
+            mapOptionsContainer.innerHTML = `
+                <a href="${androidLink}" target="_blank" class="map-option-btn android" onclick="closeMapModal()">
+                    <i class="fa-brands fa-android" style="font-size: 20px;"></i> Android (Google Maps)
+                </a>
+                <a href="${iphoneLink}" target="_blank" class="map-option-btn iphone" onclick="closeMapModal()">
+                    <i class="fa-brands fa-apple" style="font-size: 20px;"></i> iPhone (Apple Maps)
+                </a>
+                <a href="${yandexLink}" target="_blank" class="map-option-btn yandex" onclick="closeMapModal()">
+                    <i class="fa-solid fa-diamond-turn-right" style="font-size: 18px;"></i> Yandex Navigator
+                </a>
+            `;
+
             mapModal.classList.add('open');
         }
 
@@ -741,16 +1009,51 @@
             const body = document.body;
             const boyBtn = document.getElementById('boyBtn');
             const girlBtn = document.getElementById('girlBtn');
+            const girlOnlySections = document.querySelectorAll('.girl-only-section');
+
+            currentThemeMode = type;
 
             if (type === 'girl') {
                 body.classList.add('girl-theme');
                 girlBtn.classList.add('active');
                 boyBtn.classList.remove('active');
+                girlOnlySections.forEach(el => el.style.display = 'block');
             } else {
                 body.classList.remove('girl-theme');
                 boyBtn.classList.add('active');
                 girlBtn.classList.remove('active');
+                girlOnlySections.forEach(el => el.style.display = 'none');
             }
+        }
+
+        function addWish() {
+            const authorInput = document.getElementById('wishAuthor');
+            const textInput = document.getElementById('wishText');
+            const list = document.getElementById('wishesList');
+
+            const author = authorInput.value.trim();
+            const text = textInput.value.trim();
+
+            if (!author || !text) {
+                showToast("Iltimos, ismingiz va tilagingizni yozing!");
+                return;
+            }
+
+            const item = document.createElement('div');
+            item.classList.add('wish-item');
+            item.innerHTML = `
+                <div class="wish-author">${escapeHtml(author)}</div>
+                <div class="wish-text">${escapeHtml(text)}</div>
+            `;
+
+            list.prepend(item);
+            authorInput.value = '';
+            textInput.value = '';
+            showToast("Tilagingiz qo'shildi!");
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
 
         function createPetals() {
