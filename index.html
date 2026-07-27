@@ -288,16 +288,16 @@
         .venue-title { font-size: 18px; font-weight: 600; color: var(--text-main); margin-bottom: 6px; }
         .venue-address { font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 14px; }
 
-        .map-btn {
+        /* Asosiy Yo'l olish tugmasi */
+        .map-trigger-btn {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid var(--card-border);
             color: var(--text-main);
-            padding: 12px 20px;
+            padding: 14px 20px;
             border-radius: 30px;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -306,13 +306,130 @@
             transition: all 0.2s ease;
         }
 
-        body.girl-theme .map-btn {
+        body.girl-theme .map-trigger-btn {
             background: rgba(255, 105, 180, 0.15);
             border-color: rgba(255, 105, 180, 0.3);
         }
 
-        .map-btn:active {
+        .map-trigger-btn:active {
             transform: scale(0.96);
+        }
+
+        /* Modal oyna dizayni (3 ta variant uchun) */
+        .map-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10005;
+            display: flex;
+            align-items: flex-end;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .map-modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .map-modal-content {
+            background: var(--bg-color);
+            border: 1px solid var(--card-border);
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            border-top-left-radius: 32px;
+            border-top-right-radius: 32px;
+            padding: 24px 20px 35px 20px;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.3);
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.1, 1, 0.1, 1);
+            text-align: center;
+        }
+
+        .map-modal.open .map-modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .modal-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .map-options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* 1. Android - Yashil rang va logo */
+        .map-option-btn.android {
+            background: #10b981;
+            color: #ffffff;
+            border: none;
+        }
+
+        /* 2. iPhone - Oq va kulrang, Apple logo */
+        .map-option-btn.iphone {
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
+        }
+        body.girl-theme .map-option-btn.iphone {
+            background: #ffffff;
+            color: #4a3b4c;
+            border-color: rgba(255, 105, 180, 0.3);
+        }
+
+        /* 3. Yandex - Sariq rang */
+        .map-option-btn.yandex {
+            background: #facc15;
+            color: #1e293b;
+            border: none;
+        }
+
+        .map-option-btn {
+            padding: 15px 20px;
+            border-radius: 18px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .map-option-btn:active {
+            transform: scale(0.97);
+        }
+
+        .close-modal-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 16px;
+            cursor: pointer;
+            padding: 8px;
         }
 
         .countdown-grid {
@@ -506,10 +623,10 @@
             <div class="venue-title">Orom To'yxonasi</div>
             <div class="venue-address">Toshkent viloyati Bekobod tumani Zafar shaharchasi</div>
             
-            <!-- Universal xarita havolasi -->
-            <a href="https://maps.google.com/?q=40.38060,69.25289" target="_blank" class="map-btn">
-                <i class="fa-solid fa-location-dot" style="color: #fb7185;"></i> Yo'l olish (Xarita)
-            </a>
+            <!-- Yo'l olish tugmasi (Modalni ochadi) -->
+            <button class="map-trigger-btn" onclick="openMapModal()">
+                <i class="fa-solid fa-location-dot" style="color: var(--accent-color);"></i> Yo'l olish (Xarita)
+            </button>
         </div>
 
         <div class="glass-card">
@@ -547,6 +664,33 @@
         </div>
     </div>
 
+    <!-- Xarita variantlari uchun Modal Oyna -->
+    <div class="map-modal" id="mapModal" onclick="closeMapModalOutside(event)">
+        <div class="map-modal-content">
+            <div class="modal-title">Xaritani tanlang</div>
+            <div class="modal-subtitle">To'yxonaga borish uchun qulay ilovani tanlang</div>
+            
+            <div class="map-options-grid">
+                <!-- 1. Android (Google Maps) - Yashil rang va android logo -->
+                <a href="https://maps.google.com/?q=40.38060,69.25289" target="_blank" class="map-option-btn android" onclick="closeMapModal()">
+                    <i class="fa-brands fa-android" style="font-size: 20px;"></i> Android (Google Maps)
+                </a>
+
+                <!-- 2. iPhone (Apple Maps) - Oq/kulrang, Apple logo -->
+                <a href="https://maps.apple.com/?q=Orom+To'yxonasi&ll=40.38060,69.25289" target="_blank" class="map-option-btn iphone" onclick="closeMapModal()">
+                    <i class="fa-brands fa-apple" style="font-size: 20px;"></i> iPhone (Apple Maps)
+                </a>
+
+                <!-- 3. Yandex Navigator - Sariq rang -->
+                <a href="https://yandex.ru/maps/?rtext=~40.38060,69.25289&ritt=auto" target="_blank" class="map-option-btn yandex" onclick="closeMapModal()">
+                    <i class="fa-solid fa-diamond-turn-right" style="font-size: 18px;"></i> Yandex Navigator
+                </a>
+            </div>
+
+            <button class="close-modal-btn" onclick="closeMapModal()">Bekor qilish</button>
+        </div>
+    </div>
+
     <div class="toast" id="toast-msg">Nusxalandi!</div>
 
     <script>
@@ -555,6 +699,7 @@
         const mainContent = document.getElementById('main-content');
         const bgMusic = document.getElementById('bg-music');
         const musicToggle = document.getElementById('music-toggle');
+        const mapModal = document.getElementById('mapModal');
         let isPlaying = false;
 
         openBtn.addEventListener('click', () => {
@@ -577,6 +722,20 @@
                 musicToggle.innerHTML = '🔊';
             }
         });
+
+        function openMapModal() {
+            mapModal.classList.add('open');
+        }
+
+        function closeMapModal() {
+            mapModal.classList.remove('open');
+        }
+
+        function closeMapModalOutside(event) {
+            if (event.target === mapModal) {
+                closeMapModal();
+            }
+        }
 
         function setTheme(type) {
             const body = document.body;
